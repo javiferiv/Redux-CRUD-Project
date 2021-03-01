@@ -1,4 +1,4 @@
-import { AGREGAR_PRODUCTO, AGREGAR_PRODUCTO_EXITO, AGREGAR_PRODUCTO_ERROR } from './../types/index';
+import { AGREGAR_PRODUCTO, AGREGAR_PRODUCTO_EXITO, AGREGAR_PRODUCTO_ERROR, COMENZAR_DESCARGA_PRODUCTOS, DESCARGA_PRODUCTOS_EXITO, DESCARGA_PRODUCTOS_ERROR } from './../types/index';
 import clienteAxios from './../config/axios';
 import Swal from 'sweetalert2';
 
@@ -41,16 +41,46 @@ const agregarProducto = () => ({
     type: AGREGAR_PRODUCTO,
     payload: true
 
-})
+});
 
 //Si el producto se guarda en la BBDD
 const agregarProductoExito = producto => ({
     type: AGREGAR_PRODUCTO_EXITO,
     payload: producto
-})
+});
 
 //Si hubo un error
 const agregarProductoError = estado => ({
     type: AGREGAR_PRODUCTO_ERROR,
     payload: estado
+});
+
+//Función que descarga los productos de la BBDD
+export function obtenerProductosAction() {
+    return async (dispatch) => {
+        dispatch(descargarProductos())
+
+        try {
+            const respuesta = await clienteAxios.get('/productos')
+            dispatch(descargaProductosExito(respuesta.data))
+        }
+        catch (error) {
+            dispatch(descargaProductosError())
+        }
+    }
+}
+
+const descargarProductos = () => ({
+    type: COMENZAR_DESCARGA_PRODUCTOS,
+    payload: true
+})
+
+const descargaProductosExito = productos => ({
+    type: DESCARGA_PRODUCTOS_EXITO,
+    payload: productos
+})
+
+const descargaProductosError = () => ({
+    type: DESCARGA_PRODUCTOS_ERROR,
+    payload: true
 })
