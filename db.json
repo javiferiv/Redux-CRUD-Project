@@ -3,12 +3,12 @@
     {
       "id": 1,
       "nombre": "Zumo de Zanahoria",
-      "precio": "31111"
+      "precio": "300"
     },
     {
       "id": 2,
       "nombre": "Zumo de Naranja",
-      "precio": "1"
+      "precio": "100"
     },
     {
       "nombre": "Zumo de Fresa",
