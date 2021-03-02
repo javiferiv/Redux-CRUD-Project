@@ -9,7 +9,6 @@ import {
     PRODUCTO_ELIMINADO_EXITO,
     PRODUCTO_ELIMINADO_ERROR,
     OBTENER_PRODUCTO_EDITAR,
-    COMENZAR_EDICION_PRODUCTO,
     PRODUCTO_EDITADO_EXITO,
     PRODUCTO_EDITADO_ERROR
 } from './../types/index';
@@ -23,7 +22,7 @@ const initialState = {
     productoeditar: null
 }
 
-export default function (state = initialState, action) {
+export default function product (state = initialState, action) {
     switch (action.type) {
 
         case AGREGAR_PRODUCTO:

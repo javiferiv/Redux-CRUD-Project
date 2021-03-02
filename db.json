@@ -14,6 +14,16 @@
       "nombre": "Zumo de Fresa",
       "precio": "200",
       "id": 5
+    },
+    {
+      "nombre": "Tequila",
+      "precio": 100,
+      "id": 6
+    },
+    {
+      "nombre": "Manzanas",
+      "precio": 10,
+      "id": 7
     }
   ]
 }
